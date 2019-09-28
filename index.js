@@ -6,12 +6,14 @@ var fs = require('fs');
 
 const themes = config.themes;
 
+var download = false;
+
 app.engine('.hbs', exphbs({extname: '.hbs'}));
 app.set('view engine', '.hbs');
 app.use(express.static('public'))
 
 app.get('/', async (req, res) => {
-    var quotes = await fs.readFileSync('./quotes.txt');
+    var quotes = await fs.readFileSync('./text/quotes.txt');
     var allQuotes = [];
     console.log();
     var quotesArray = quotes.toString().split('\n');
@@ -30,7 +32,8 @@ app.get('/', async (req, res) => {
 function render(res, data) {
     res.render('home', {
         data: data,
-        theme: themes[2]
+        theme: themes[2],
+        download: download
     });
 }
 

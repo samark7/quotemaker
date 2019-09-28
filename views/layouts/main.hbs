@@ -40,13 +40,15 @@
                 console.log('bse');
                 img.file(`quote${i}.jpg`, bse, { base64: true });
             }
-           
+
+            {{#if download}}
             zip.generateAsync({ type: "blob" })
                 .then(function (content) {
                     console.log("ZIP Complete");
                     // see FileSaver.js
                     saveAs(content, "example.zip");
                 });
+            {{/if}}
         });
     </script>
 </body>

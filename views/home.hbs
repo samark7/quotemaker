@@ -1,0 +1,23 @@
+{{> styles }}
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 mx-auto">
+            {{#each data.quotes}}
+            <div class="block mx-auto">
+                <div class="quote text-center">
+                    {{!-- <div class="img">
+                        <img src="https://placehold.it/60x60" alt="">
+                    </div> --}}
+                    <div class="intent">
+                        {{this.quote}}
+                    </div>
+                    <div class="author">{{this.author}}</div>
+                    <div class="logo">
+                        <img src="sliteresume-empty.png" alt="">
+                    </div>
+                </div>
+            </div>
+            {{/each}}
+        </div>
+    </div>
+</div>
